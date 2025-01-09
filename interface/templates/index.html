@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Page</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+    <h1>SGARB-AI</h1>
+</div>
+
+<!-- Main content -->
+<div class="container">
+    <!-- Left block -->
+    <div class="block small-block">
+        <p>Blocco sinistro</p>
+    </div>
+
+    <!-- Center block -->
+    <div class="block large-block">
+        <div class="image-placeholder">
+            <p>Inserisci immagine</p>
+        </div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" class="input-file" required>
+            <button type="submit" class="button">Carica</button>
+        </form>
+    </div>
+
+    <!-- Right block -->
+    <div class="block small-block">
+        <p>Blocco destro</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2025 SGARB-AI. Tutti i diritti riservati.</p>
+</div>
+</body>
+</html>
