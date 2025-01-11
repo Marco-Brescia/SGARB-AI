@@ -4,6 +4,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Per fare in modo che il footer rimanga in fondo */
 }
 
 /* Header */
@@ -20,8 +23,7 @@ body {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+    margin-top: auto; /* Fa sì che il footer rimanga in fondo */
     width: 100%;
 }
 
@@ -32,6 +34,7 @@ body {
     align-items: center;
     margin: 50px auto;
     width: 80%;
+    max-width: 1200px; /* Imposta un massimo per evitare layout troppo larghi */
 }
 
 /* Blocks in the container */
@@ -44,15 +47,17 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* Size for small and large blocks */
+/* Distanza tra i blocchi */
 .small-block {
     flex: 1;
     max-width: 200px;
+    margin: 0 20px; /* Aggiunge spazio ai lati dei blocchi piccoli */
 }
 
 .large-block {
     flex: 2;
     max-width: 600px;
+    margin: 0 40px; /* Spaziatura aggiuntiva per il blocco centrale */
 }
 
 /* Dynamically changing block styles */
@@ -101,14 +106,94 @@ body {
     background-color: #45a049;
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
+/* Breakpoint per schermi molto larghi (1920px e oltre) */
+@media (min-width: 1920px) {
     .container {
-        flex-direction: column;
+        width: 70%;
     }
 
-    .small-block, .large-block {
-        max-width: 100%;
+    .large-block {
+        max-width: 800px;
+    }
+
+    .small-block {
+        max-width: 250px;
+    }
+
+    .button {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
+
+/* Breakpoint per schermi medi (1366px–1919px) */
+@media (max-width: 1919px) and (min-width: 1366px) {
+    .container {
+        width: 80%;
+    }
+
+    .large-block {
+        max-width: 600px;
+    }
+
+    .small-block {
+        max-width: 200px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Breakpoint per schermi più piccoli (1024px–1365px) */
+@media (max-width: 1365px) and (min-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .large-block {
+        max-width: 500px;
+    }
+
+    .small-block {
+        max-width: 150px;
+        margin: 0 10px; /* Riduce il margine per schermi più piccoli */
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .image-placeholder {
+        height: 180px;
+    }
+}
+
+/* Breakpoint per la risoluzione minima desktop (sotto 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .block {
         margin-bottom: 20px;
+    }
+
+    .large-block, .small-block {
+        max-width: 90%;
+        margin: 20px auto; /* Centra i blocchi in modalità colonna */
+    }
+
+    .image-placeholder {
+        height: 150px;
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }

@@ -18,7 +18,6 @@ fileInput.addEventListener('change', (event) => {
 document.getElementById('upload-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const fileInput = document.getElementById('file-input');
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
 
@@ -32,8 +31,8 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         if (data.result) {
             const result = data.result;
 
-            const blockLeft = document.getElementById('block-left');
-            const blockRight = document.getElementById('block-right');
+            const blockLeft = document.getElementById('left-block');
+            const blockRight = document.getElementById('right-block');
 
             if (result === 'IA') {
                 blockLeft.classList.add('active');
