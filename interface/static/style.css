@@ -41,6 +41,7 @@ body {
     padding: 20px;
     text-align: center;
     border-radius: 8px;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Size for small and large blocks */
@@ -52,6 +53,18 @@ body {
 .large-block {
     flex: 2;
     max-width: 600px;
+}
+
+/* Dynamically changing block styles */
+.block.active {
+    background-color: #4CAF50;
+    color: white;
+    transform: scale(1.1);
+}
+
+.block.inactive {
+    background-color: #ccc;
+    color: #666;
 }
 
 /* Image placeholder */
@@ -86,4 +99,16 @@ body {
 
 .button:hover {
     background-color: #45a049;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .small-block, .large-block {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 }

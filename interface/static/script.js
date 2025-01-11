@@ -14,3 +14,43 @@ fileInput.addEventListener('change', (event) => {
         reader.readAsDataURL(file);
     }
 });
+
+document.getElementById('upload-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const fileInput = document.getElementById('file-input');
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    try {
+        const response = await fetch('/classify', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (data.result) {
+            const result = data.result;
+
+            const blockLeft = document.getElementById('block-left');
+            const blockRight = document.getElementById('block-right');
+
+            if (result === 'IA') {
+                blockLeft.classList.add('active');
+                blockLeft.classList.remove('inactive');
+                blockRight.classList.add('inactive');
+                blockRight.classList.remove('active');
+            } else {
+                blockRight.classList.add('active');
+                blockRight.classList.remove('inactive');
+                blockLeft.classList.add('inactive');
+                blockLeft.classList.remove('active');
+            }
+        } else {
+            alert('Errore nella classificazione');
+        }
+    } catch (err) {
+        console.error('Errore:', err);
+        alert('Errore nella comunicazione con il server.');
+    }
+});

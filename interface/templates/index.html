@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Page</title>
+    <title>SGARB-AI Image Classifier</title>
     <link rel="stylesheet" href="static/style.css">
-    <script src="static/script.js"></script>
+    <script src="static/script.js" defer></script>
 </head>
 <body>
 <!-- Header -->
@@ -16,24 +16,24 @@
 <!-- Main content -->
 <div class="container">
     <!-- Left block -->
-    <div class="block small-block">
-        <p>Blocco sinistro</p>
+    <div id="left-block" class="block small-block">
+        <p>IA</p>
     </div>
 
     <!-- Center block -->
     <div class="block large-block">
-        <div class="image-placeholder">
+        <div class="image-placeholder" id="image-placeholder">
             <p>Inserisci immagine</p>
         </div>
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="file" class="input-file" required>
             <button type="submit" class="button">Carica</button>
         </form>
     </div>
 
     <!-- Right block -->
-    <div class="block small-block">
-        <p>Blocco destro</p>
+    <div id="right-block" class="block small-block">
+        <p>Real</p>
     </div>
 </div>
 
