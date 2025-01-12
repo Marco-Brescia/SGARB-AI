@@ -1,49 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
     <title>SGARB-AI Image Classifier</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!--  Custom CSS -->
     <link rel="stylesheet" href="static/style.css">
+
+    <!-- Custom JavaScript -->
     <script src="static/script.js" defer></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+
 </head>
-<body>
-<!-- Header -->
-<div class="header">
-    <!--<h1>SGARB-AI</h1>-->
-    <img src="/static/images/logo_2su1.png" alt="SGARB-AI" class="logo">
-</div>
 
-<!-- Main content -->
-<div class="container">
-    <!-- Left block -->
-    <div id="left-block" class="block small-block">
-        <p>IA</p>
-    </div>
+<body class="text-center">
 
-    <!-- Center block -->
-    <div class="block large-block">
-        <div class="image-placeholder" id="image-placeholder">
-            <p>Inserisci immagine</p>
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto position-relative">
+        <div class="inner">
+            <!-- Logo positioned in the top-left corner -->
+            <img src="/static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo img-fluid position-absolute" style="top: 0; left: 0; max-height: 166px;">
+
+            <!-- Navigation centered -->
+            <nav class="nav nav-masthead justify-content-center pt-3">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Contact</a>
+            </nav>
         </div>
-        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" class="input-file" required>
-            <button type="submit" class="button">Carica</button>
-        </form>
-    </div>
+    </header>
 
-    <!-- Right block -->
-    <div id="right-block" class="block small-block">
-        <p>Real</p>
-    </div>
+    <main role="main" class="inner cover">
+        <div class="row g-5 align-items-center">
+            <!-- Left block -->
+            <div id="left-block" class="block col-12 col-md-2 text-center shadow-sm py-4 pr-6 rounded ms-md-4">
+                <p>IA</p>
+            </div>
+
+            <!-- Center block -->
+            <div class="col-12 col-md-6 text-center">
+                <div class="block bg-white shadow-sm p-4 rounded">
+                    <div id="image-placeholder" class="image-placeholder d-flex justify-content-center align-items-center mb-3">
+                        <p>Inserisci immagine</p>
+                    </div>
+                    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" class="d-grid gap-2">
+                        <input type="file" name="file" id="file" class="form-control" required>
+                        <button type="submit" class="btn btn-success">Carica</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right block -->
+            <div id="right-block" class="block col-12 col-md-2 text-center shadow-sm py-4 rounded me-md-4">
+                <p>Real</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>&copy; 2025 SGARB-AI <i>by The Simps</i>. Tutti i diritti non ne abbiamo, siamo ritardati.</p>
+        </div>
+    </footer>
 </div>
 
-<div style="margin: 50px"><br>
-    </div>
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
 
-<!-- Footer -->
-<div class="footer">
-    <p>&copy; 2025 SGARB-AI <i>by The Simps</i>. Tutti i diritti riservati.</p>
-</div>
 </body>
+
 </html>

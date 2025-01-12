@@ -60,17 +60,22 @@ body {
     margin: 0 40px; /* Spaziatura aggiuntiva per il blocco centrale */
 }
 
-/* Dynamically changing block styles */
+/* Blocco attivo */
 .block.active {
-    background-color: #4CAF50;
+    transform: scale(1.2); /* Ingrandisci */
+    background-color: #28a745 !important; /* Verde Bootstrap */
     color: white;
-    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Blocco inattivo */
 .block.inactive {
-    background-color: #ccc;
-    color: #666;
+    transform: scale(0.9); /* Rimpicciolisci */
+    background-color: #6c757d !important; /* Grigio Bootstrap */
+    color: #fff;
+    box-shadow: none;
 }
+
 
 /* Image placeholder */
 .image-placeholder {
@@ -104,96 +109,4 @@ body {
 
 .button:hover {
     background-color: #45a049;
-}
-
-/* Breakpoint per schermi molto larghi (1920px e oltre) */
-@media (min-width: 1920px) {
-    .container {
-        width: 70%;
-    }
-
-    .large-block {
-        max-width: 800px;
-    }
-
-    .small-block {
-        max-width: 250px;
-    }
-
-    .button {
-        font-size: 18px;
-        padding: 12px 24px;
-    }
-}
-
-/* Breakpoint per schermi medi (1366px–1919px) */
-@media (max-width: 1919px) and (min-width: 1366px) {
-    .container {
-        width: 80%;
-    }
-
-    .large-block {
-        max-width: 600px;
-    }
-
-    .small-block {
-        max-width: 200px;
-    }
-
-    .button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-}
-
-/* Breakpoint per schermi più piccoli (1024px–1365px) */
-@media (max-width: 1365px) and (min-width: 1024px) {
-    .container {
-        width: 90%;
-    }
-
-    .large-block {
-        max-width: 500px;
-    }
-
-    .small-block {
-        max-width: 150px;
-        margin: 0 10px; /* Riduce il margine per schermi più piccoli */
-    }
-
-    .button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    .image-placeholder {
-        height: 180px;
-    }
-}
-
-/* Breakpoint per la risoluzione minima desktop (sotto 1024px) */
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .block {
-        margin-bottom: 20px;
-    }
-
-    .large-block, .small-block {
-        max-width: 90%;
-        margin: 20px auto; /* Centra i blocchi in modalità colonna */
-    }
-
-    .image-placeholder {
-        height: 150px;
-        font-size: 14px;
-    }
-
-    .button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
 }

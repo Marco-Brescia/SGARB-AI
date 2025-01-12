@@ -31,9 +31,11 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         if (data.result) {
             const result = data.result;
 
+            // Seleziona i blocchi
             const blockLeft = document.getElementById('left-block');
             const blockRight = document.getElementById('right-block');
 
+            // Aggiusta le classi in base al risultato
             if (result === 'IA') {
                 blockLeft.classList.add('active');
                 blockLeft.classList.remove('inactive');
