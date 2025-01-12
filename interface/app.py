@@ -4,7 +4,12 @@ import random  # Per simulare la predizione
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
+import tensorflow as tf
 
+# Definizione della funzione di perdita personalizzata
+def weighted_loss(y_true, y_pred):
+    weight = tf.where(tf.equal(y_true, 0), 10.0, 1.0)
+    return tf.reduce_mean(weight * tf.keras.losses.binary_crossentropy(y_true, y_pred))
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 
@@ -12,7 +17,7 @@ app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'new', 'model.h5')
 
 # Carica il modello pre-addestrato
-model = load_model(MODEL_PATH)
+model = load_model(MODEL_PATH, custom_objects={'weighted_loss': weighted_loss})
 
 # Preprocessing dell'immagine
 def preprocess_image(image_path):
