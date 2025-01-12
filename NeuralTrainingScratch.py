@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from keras.metrics import Recall
@@ -11,9 +10,19 @@ from tensorflow.keras.callbacks import EarlyStopping
 import keras_tuner as kt
 
 # Percorsi delle directory
-dataset_dir = "DatasetTraining(Processed)"
-test_dir = "Test"
-output_dir = 'modello/new/'
+
+# `dataset_dir` è la cartella dei dati processati
+# Esempio: "DatasetTraining(Processed)"
+dataset_dir = ""
+
+# `test_dir` è la cartella di test
+# Esempio: "Test"
+test_dir = ""
+
+# `output_dir` è la cartella di output del modello e dei grafici
+# Esempio: 'modello/new/'
+output_dir = ''
+
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
