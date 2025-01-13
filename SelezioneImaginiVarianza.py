@@ -17,8 +17,8 @@ source_dir = Path(
     "input_base_dir")
 output_dir = Path("filtered_images_Varianza")
 output_dir.mkdir(exist_ok=True)
-clusters_dir = Path("grafici")
-clusters_dir.mkdir(exist_ok=True)
+grafici_dir = Path("grafici")
+grafici_dir.mkdir(exist_ok=True)
 
 # Configurazione TensorFlow per usare la GPU se disponibile
 physical_devices = tf.config.list_physical_devices('GPU')
@@ -90,7 +90,7 @@ def filter_images_by_type(images, paths, category, max_images=1000):
     return selected_paths, features_reduced, selected_indices
 
 # Funzione per salvare il grafico del grafico
-def save_clustering_plot(features_reduced, folder_name, selected_indices=None):
+def save_image(features_reduced, folder_name, selected_indices=None):
     plt.figure(figsize=(8, 6))
 
     # Usiamo PCA per ridurre a 2 dimensioni per la visualizzazione
@@ -114,7 +114,7 @@ def save_clustering_plot(features_reduced, folder_name, selected_indices=None):
     plt.ylabel("Componente principale 2")
     plt.legend()
 
-    cluster_plot_path = clusters_dir / f"{folder_name}_graphic.png"
+    cluster_plot_path = grafici_dir / f"{folder_name}_graphic.png"
     plt.savefig(cluster_plot_path)
     plt.close()
 
@@ -140,7 +140,7 @@ def process_folder(folder, progress_bar):
     filtered_paths, features_reduced, selected_indices = filter_images_by_type(images, paths, category)
 
     # Salva il grafico del clustering con i nuovi "cluster_labels"
-    save_clustering_plot(features_reduced, folder.name, selected_indices)
+    save_image(features_reduced, folder.name, selected_indices)
 
     # Copia le immagini selezionate nella cartella di output
     copy_images_to_respective_folders(filtered_paths, category, output_category_dir)
@@ -159,7 +159,7 @@ progress_bar = ttk.Progressbar(root, orient="horizontal", length=400, mode="dete
 progress_bar.pack(padx=20, pady=20)
 
 # Elaborazione delle cartelle sequenziale
-folders = [f for f in source_dir.iterdir() if f.is_dir() and f.name not in ["REAL", "AI", "AI"]]
+folders = [f for f in source_dir.iterdir() if f.is_dir() and f.name not in ["REAL", "AI"]]
 
 for folder in folders:
     progress_bar['value'] = 0  # Reset della barra di progresso per ogni cartella
@@ -168,7 +168,7 @@ for folder in folders:
     process_folder(folder, progress_bar)
 
 print("Processo completato. Immagini filtrate salvate in:", output_dir)
-print("Immagini dei cluster salvate in:", clusters_dir)
+print("Immagini dei cluster salvate in:", grafici_dir)
 
 # Avvio dell'interfaccia grafica
 root.mainloop()
