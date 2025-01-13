@@ -1,0 +1,112 @@
+/* Stile per il body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Per fare in modo che il footer rimanga in fondo */
+}
+
+/* Header */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Fa sì che il footer rimanga in fondo */
+    width: 100%;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1200px; /* Imposta un massimo per evitare layout troppo larghi */
+}
+
+/* Blocks in the container */
+.block {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Distanza tra i blocchi */
+.small-block {
+    flex: 1;
+    max-width: 200px;
+    margin: 0 20px; /* Aggiunge spazio ai lati dei blocchi piccoli */
+}
+
+.large-block {
+    flex: 2;
+    max-width: 600px;
+    margin: 0 40px; /* Spaziatura aggiuntiva per il blocco centrale */
+}
+
+/* Blocco attivo */
+.block.active {
+    transform: scale(1.2); /* Ingrandisci */
+    background-color: #28a745 !important; /* Verde Bootstrap */
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Blocco inattivo */
+.block.inactive {
+    transform: scale(0.9); /* Rimpicciolisci */
+    background-color: #6c757d !important; /* Grigio Bootstrap */
+    color: #fff;
+    box-shadow: none;
+}
+
+
+/* Image placeholder */
+.image-placeholder {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    font-size: 16px;
+}
+
+/* Input file and button */
+.input-file {
+    display: block;
+    margin: 10px auto;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
