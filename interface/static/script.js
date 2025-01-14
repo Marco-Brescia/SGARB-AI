@@ -30,28 +30,36 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         const data = await response.json();
         if (data.result) {
             const result = data.result;
+            const confidence = data.confidence;
 
             // Seleziona i blocchi
             const blockLeft = document.getElementById('left-block');
             const blockRight = document.getElementById('right-block');
+            const percIA = document.getElementById('perc-IA');
+            const percReal = document.getElementById('perc-Real');
 
             // Aggiusta le classi in base al risultato
             if (result === 'IA') {
+                percReal.innerHTML = '--';
                 blockLeft.classList.add('active');
                 blockLeft.classList.remove('inactive');
                 blockRight.classList.add('inactive');
                 blockRight.classList.remove('active');
+                percIA.innerHTML = `${confidence}`;
             } else {
+                percIA.innerHTML = '--';
                 blockRight.classList.add('active');
                 blockRight.classList.remove('inactive');
                 blockLeft.classList.add('inactive');
                 blockLeft.classList.remove('active');
+                percReal.innerHTML = `${confidence}`;
             }
         } else {
             alert('Errore nella classificazione');
         }
     } catch (err) {
         console.error('Errore:', err);
+        print(err);
         alert('Errore nella comunicazione con il server.');
     }
 });

@@ -1,20 +1,14 @@
 from flask import Flask, request, jsonify, render_template
 import os
-import random  # Per simulare la predizione
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
-import tensorflow as tf
-
-# Definizione della funzione di perdita personalizzata
-def weighted_loss(y_true, y_pred):
-    weight = tf.where(tf.equal(y_true, 0), 10.0, 1.0)
-    return tf.reduce_mean(weight * tf.keras.losses.binary_crossentropy(y_true, y_pred))
+from model_build import weighted_loss
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 
 # Percorso del modello (relativo alla cartella interface)
-MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'new', 'model.h5')
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'f2_0', 'model.h5')
 
 # Carica il modello pre-addestrato
 model = load_model(MODEL_PATH, custom_objects={'weighted_loss': weighted_loss})
@@ -50,11 +44,15 @@ def classify():
 
     # Interpreta il risultato (Supponendo che la soglia sia 0.5)
     result = 'IA' if prediction[0] > 0.5 else 'Real'
+    confidence = f"{prediction[0].item() * 100:.2f}%" if result == 'IA' else f"{(1 - prediction[0].item()) * 100:.2f}%"
 
     # Simulazione della predizione
     #result = random.choice(['IA', 'Real'])
 
-    return jsonify({'result': result})
+    return jsonify({'result': result, 'confidence': confidence})
+
+    # Simulazione della predizione
+    #result = random.choice(['IA', 'Real'])
 
 if __name__ == '__main__':
     # Crea la cartella di upload se non esiste
