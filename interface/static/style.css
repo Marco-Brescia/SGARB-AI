@@ -1,32 +1,3 @@
-/* Stile per il body */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Per fare in modo che il footer rimanga in fondo */
-}
-
-/* Header */
-.header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-/* Footer */
-.footer {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto; /* Fa sì che il footer rimanga in fondo */
-    width: 100%;
-}
-
 /* Container layout */
 .container {
     display: flex;
@@ -39,7 +10,7 @@ body {
 
 /* Blocks in the container */
 .block {
-    background-color: white;
+    background-color: silver;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
@@ -63,8 +34,8 @@ body {
 /* Blocco attivo */
 .block.active {
     transform: scale(1.2); /* Ingrandisci */
-    background-color: #28a745 !important; /* Verde Bootstrap */
-    color: white;
+    background-color: whitesmoke !important; /* Verde Bootstrap */
+    color: black;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -98,7 +69,7 @@ body {
 }
 
 .button {
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -107,6 +78,11 @@ body {
     font-size: 16px;
 }
 
+form{
+    flex-direction: column;
+    align-items: center;
+}
+
 .button:hover {
-    background-color: #45a049;
+    background-color: #333333;
 }

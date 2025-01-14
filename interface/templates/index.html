@@ -21,7 +21,7 @@
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+    <link href="static/ops.css" rel="stylesheet">
 
 </head>
 
@@ -31,8 +31,8 @@
     <header class="masthead mb-auto position-relative">
         <div class="inner">
             <!-- Logo positioned in the top-left corner -->
-            <img src="/static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo img-fluid position-absolute" style="top: 0; left: 0; max-height: 166px;">
-
+            <img src="/static/images/logo_2su1_w.png" alt="SGARB-AI" class="img-fluid position-absolute" style="top: 0; left: 0; max-height: 166px;">
+            <div class=""></div>
             <!-- Navigation centered -->
             <nav class="nav nav-masthead justify-content-center pt-3">
                 <a class="nav-link active" href="#">Home</a>
@@ -45,7 +45,7 @@
     <main role="main" class="inner cover">
         <div class="row g-5 align-items-center">
             <!-- Left block -->
-            <div id="left-block" class="block col-12 col-md-2 text-center shadow-sm py-4 pr-6 rounded ms-md-4">
+            <div id="left-block" class="block col-12 col-sm-3 text-center shadow-sm py-4 pr-6 rounded ms-md-4">
                 <img src="/static/images/goat.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
                 <div>
                     <div>IA</div>
@@ -55,19 +55,19 @@
 
             <!-- Center block -->
             <div class="col-12 col-md-6 text-center">
-                <div class="block bg-white shadow-sm p-4 rounded">
+                <div class="block shadow-sm p-4 rounded">
                     <div id="image-placeholder" class="image-placeholder d-flex justify-content-center align-items-center mb-3">
                         <p>Inserisci immagine</p>
                     </div>
                     <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" class="d-grid gap-2">
-                        <input type="file" name="file" id="file" class="form-control" required>
-                        <button type="submit" class="btn btn-success">Carica</button>
+                        <input type="file" name="file" id="file" class="form" required>
+                        <div><br><button type="submit" class="button">Carica</button></div>
                     </form>
                 </div>
             </div>
 
             <!-- Right block -->
-            <div id="right-block" class="block col-12 col-md-2 text-center shadow-sm py-4 rounded me-md-4">
+            <div id="right-block" class="block col-12 col-sm-3 text-center shadow-sm py-4 rounded me-md-4">
                 <img src="/static/images/human.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
                 <div>
                     <div>REAL</div>
@@ -80,7 +80,7 @@
     <!-- Footer -->
     <footer class="mastfoot mt-auto">
         <div class="inner">
-            <p>&copy; 2025 SGARB-AI <i>by The Simps</i>. Diritti non ne abbiamo.</p>
+            <p>&copy; 2025 SGARB-AI <i>by The Simps</i>.
         </div>
     </footer>
 </div>
