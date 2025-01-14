@@ -1,123 +1,112 @@
-/* Centrare il contenitore principale nella pagina */
-.cover-container {
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100vh; /* Imposta altezza della pagina a 100% della viewport */
-}
-
-/* Layout a griglia per i blocchi */
-.row.g-5 {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* Colonne con una larghezza maggiore per le colonne laterali */
-    gap: 50px; /* Aumenta la distanza tra le colonne */
-    align-items: center; /* Allineamento verticale dei blocchi */
-    justify-items: center; /* Allineamento orizzontale dei blocchi */
-    width: 100%; /* Occupare tutta la larghezza disponibile */
-    max-width: 1200px; /* Imposta una larghezza massima per evitare che diventi troppo largo */
-}
-
-/* Stile per i blocchi */
-.block {
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Centra verticalmente il contenuto nel blocco */
-    justify-content: center; /* Centra verticalmente il contenuto */
-    align-items: center; /* Centra orizzontalmente il contenuto */
-}
-
-/* Blocchi specifici */
-#left-block {
-    grid-column: 1; /* Posiziona a sinistra */
-}
-
-#right-block {
-    grid-column: 3; /* Posiziona a destra */
-}
-
-.col-12.col-md-6 {
-    grid-column: 2; /* Posiziona al centro */
-    
-}
-
-/* Immagine e contenuti dei blocchi */
-#left-block img,
-#right-block img {
-    /* max-width: 100%;  Assicura che l'immagine non esca dal blocco */
-}
-
-.image-placeholder {
-    border: 1px solid #ccc;
-    padding: 20px;
-    min-height: 200px; /* Altezza minima */
-}
-
-/* Centrato verticalmente e orizzontalmente il form */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-
-}
-
-.logo {
-    width: 250px !important;
-    height: 250px !important;
-   
-}
-
-
-/* Stile generale per il form */
-#upload-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Spazio tra gli elementi del form */
-    margin-top: 20px;
-}
-
-/* Stile per il campo di input */
-#upload-form input[type="file"] {
-    width: 200px; /* Larghezza più chiara */
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Stile per il body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-}
-
-/* Stile per il pulsante */
-#upload-form button {
-    margin-top: 10px;
-    width: 100px; /* Larghezza del bottone */
-    padding: 10px;
-    background-color: #FFFF; 
-    border: none;
-    border-radius: 5px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Effetto hover sul pulsante */
-#upload-form button:hover {
-    background-color: #2c2c2c; /* Verde più scuro al passaggio del mouse */
-    color : white;
-}
-
-/* Centrare e migliorare lo stile del form */
-#image-placeholder {
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Per fare in modo che il footer rimanga in fondo */
+}
+
+/* Header */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Fa sì che il footer rimanga in fondo */
+    width: 100%;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1200px; /* Imposta un massimo per evitare layout troppo larghi */
+}
+
+/* Blocks in the container */
+.block {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Distanza tra i blocchi */
+.small-block {
+    flex: 1;
+    max-width: 200px;
+    margin: 0 20px; /* Aggiunge spazio ai lati dei blocchi piccoli */
+}
+
+.large-block {
+    flex: 2;
+    max-width: 600px;
+    margin: 0 40px; /* Spaziatura aggiuntiva per il blocco centrale */
+}
+
+/* Blocco attivo */
+.block.active {
+    transform: scale(1.2); /* Ingrandisci */
+    background-color: #28a745 !important; /* Verde Bootstrap */
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Blocco inattivo */
+.block.inactive {
+    transform: scale(0.9); /* Rimpicciolisci */
+    background-color: #6c757d !important; /* Grigio Bootstrap */
+    color: #fff;
+    box-shadow: none;
+}
+
+
+/* Image placeholder */
+.image-placeholder {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 250px;
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background-color: #2c2c2c;
+    color: #999;
+    font-size: 16px;
+}
+
+/* Input file and button */
+.input-file {
+    display: block;
+    margin: 10px auto;
+}
+
+.button {
+    background-color: #4CAF50;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #45a049;
 }

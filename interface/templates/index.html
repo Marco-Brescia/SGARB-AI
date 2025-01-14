@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
     <!--  Custom CSS -->
-    <link rel="stylesheet" href="/interface/static/style.css">
+    <link rel="stylesheet" href="static/style.css">
 
     <!-- Custom JavaScript -->
     <script src="static/script.js" defer></script>
@@ -26,11 +26,12 @@
 </head>
 
 <body class="text-center">
+
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto position-relative">
         <div class="inner">
             <!-- Logo positioned in the top-left corner -->
-            <img src="/interface/static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo1" style="top: 0; left: 0; max-height: 166px;">
+            <img src="/interface/static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo img-fluid position-absolute" style="top: 0; left: 0; max-height: 166px;">
 
             <!-- Navigation centered -->
             <nav class="nav nav-masthead justify-content-center pt-3">
@@ -40,11 +41,12 @@
             </nav>
         </div>
     </header>
+
     <main role="main" class="inner cover">
         <div class="row g-5 align-items-center">
             <!-- Left block -->
-            <div id="left-block" class="block">
-                <img id="imgIA" src="/interface/static/images/goat.png" alt="SGARB-AI" class="logo">
+            <div id="left-block" class="block col-12 col-md-2 text-center shadow-sm py-4 pr-6 rounded ms-md-4">
+                <img src="/interface/static/images/goat.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
                 <div>
                     <div>IA</div>
                     <div id="perc-IA">---</div>
@@ -53,7 +55,7 @@
 
             <!-- Center block -->
             <div class="col-12 col-md-6 text-center">
-                <div class="block">
+                <div class="block bg-white shadow-sm p-4 rounded">
                     <div id="image-placeholder" class="image-placeholder d-flex justify-content-center align-items-center mb-3">
                         <p>Inserisci immagine</p>
                     </div>
@@ -65,14 +67,14 @@
             </div>
 
             <!-- Right block -->
-            <div id="right-block" class="block">
-                <img src="/interface/static/images/human.png" alt="SGARB-AI" class="logo">
+            <div id="right-block" class="block col-12 col-md-2 text-center shadow-sm py-4 rounded me-md-4">
+                <img src="/interface/static/images/human.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
                 <div>
                     <div>REAL</div>
                     <div id="perc-Real">---</div>
                 </div>
-                </div>
             </div>
+        </div>
     </main>
 
     <!-- Footer -->
