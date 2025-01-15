@@ -78,7 +78,10 @@ function animateConfidence(element, confidence) {
             element.innerHTML = `${targetConfidence.toFixed(2)}%`;
         } else {
             currentConfidence += 1; // Increment by 1 for each interval
-            element.innerHTML = `${currentConfidence.toFixed(2)}%`;
+
+            // Genera due cifre decimali casuali tra 0 e 99
+            const randomDecimals = Math.floor(Math.random() * 100);
+            element.innerHTML = `${currentConfidence.toFixed(0)}.${randomDecimals.toString().padStart(2, '0')}%`;
         }
-    }, 12); // 20ms interval for smooth animation
+    }, 12); // 12ms interval for smooth animation
 }
