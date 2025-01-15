@@ -16,7 +16,7 @@ body{
     justify-content: center;
     align-content: center;
     width: 100%; /* Occupa tutta la larghezza disponibile */
-    height: 100vh;
+    height: 80vh;
 }
 /* Stile per i blocchi */
 .block {
@@ -124,8 +124,7 @@ form {
 
 .percentage-block {
     text-align: center;
-    font-size: 2.0em; /* Aumenta dimensione del testo */
-    font-weight: bold;
+    font-size: clamp(1rem, 2vw, 3rem); /* Dimensione del font tra 1rem e 3rem, ma proporzionale alla larghezza della viewport */    font-weight: bold;
     padding: 10px;
     border: 1px solid #ccc; /* Bordo opzionale */
     border-radius: 5px;
@@ -160,4 +159,9 @@ form {
     background-color: #6c757d !important; /* Grigio Bootstrap */
     color: #fff;
     box-shadow: none;
+}
+
+.block .active_result {
+    filter: invert(1); /* Inverte i colori, rendendo l'immagine bianca */
+    transition: filter 0.5s ease-in-out; /* Aggiunge una transizione graduale */
 }

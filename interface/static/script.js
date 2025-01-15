@@ -35,21 +35,27 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
             // Seleziona i blocchi
             const blockLeft = document.getElementById('block_perc_left');
             const blockRight = document.getElementById('block_perc_right');
+            const AiImage = document.getElementById('img-IA');
+            const RealImage = document.getElementById('img-Real');
             const AiConfidence = document.getElementById('perc-IA');
             const HumanConfidence = document.getElementById('perc-Real');
 
             // Aggiusta le classi in base al risultato
             if (result === 'IA') {
-                AiConfidence.innerHTML = confidence + '%';
+                RealImage.classList.add('active_result');
+                animateConfidence(AiConfidence, confidence);
                 blockLeft.classList.add('active');
                 blockLeft.classList.remove('inactive');
+                AiImage.classList.remove('active_result');
                 HumanConfidence.innerHTML = '';
                 blockRight.classList.add('inactive');
                 blockRight.classList.remove('active');
             } else {
-                HumanConfidence.innerHTML = confidence + '%';
+                AiImage.classList.add('active_result');
+                animateConfidence(HumanConfidence, confidence);
                 blockRight.classList.add('active');
                 blockRight.classList.remove('inactive');
+                RealImage.classList.remove('active_result');
                 AiConfidence.innerHTML = '';
                 blockLeft.classList.add('inactive');
                 blockLeft.classList.remove('active');
@@ -62,3 +68,17 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         alert('Errore nella comunicazione con il server.');
     }
 });
+
+function animateConfidence(element, confidence) {
+    let currentConfidence = 0;
+    const targetConfidence = parseFloat(confidence);
+    const interval = setInterval(() => {
+        if (currentConfidence >= targetConfidence) {
+            clearInterval(interval);
+            element.innerHTML = `${targetConfidence.toFixed(2)}%`;
+        } else {
+            currentConfidence += 1; // Increment by 1 for each interval
+            element.innerHTML = `${currentConfidence.toFixed(2)}%`;
+        }
+    }, 12); // 20ms interval for smooth animation
+}
