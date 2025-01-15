@@ -23,6 +23,48 @@
   <!-- Custom styles for this template -->
   <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
 
+  <style>
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin: 20px 0;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .quote::before {
+      content: '\201C';
+      font-size: 3rem;
+      color: #999;
+      position: absolute;
+      left: -25px;
+      top: -20px;
+    }
+
+    .quote::after {
+      content: '\201D';
+      font-size: 3rem;
+      color: #999;
+      position: absolute;
+      right: -25px;
+      bottom: -20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .info-section {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body class="text-center">
@@ -44,33 +86,24 @@
     <div class="row g-5 align-items-center" style="max-height: 500px">
       <!-- Left block -->
       <div id="left-block" class="block">
-        <div class="percentage-block left inactive" id="block_perc_left">
-          <div>IA</div>
-          <div id="perc-IA"></div>
-        </div>
         <img src="../static/images/goat.png" alt="SGARB-AI" class="image" id="img-Real">
       </div>
 
       <!-- Center block -->
       <div class="col-12 col-md-6 text-center">
-        <div class="block">
-          <div id="image-placeholder" class="image-placeholder d-flex justify-content-center align-items-center mb-3">
-            <p>Inserisci immagine</p>
-          </div>
-          <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data" class="d-grid gap-2">
-            <input type="file" name="file" id="file" class="form-control" required>
-            <button type="submit" class="btn btn-success">Carica</button>
-          </form>
-          <!-- Blocchi percentuali aggiunti qui -->
+
+        <div class="quote">
+          "Una macchina può essere definita intelligente se riesce a ingannare un essere umano facendogli credere che sia umana."
+        </div>
+        <p class="text-muted">- Alan Turing</p>
+
+        <div class="info-section">
+
         </div>
       </div>
 
       <!-- Right block -->
       <div id="right-block" class="block">
-        <div class="percentage-block right inactive" id="block_perc_right">
-          <div>REAL</div>
-          <div id="perc-Real"></div>
-        </div>
         <img src="../static/images/human.png" alt="SGARB-AI" class="image" id="img-IA">
       </div>
     </div>

@@ -136,6 +136,17 @@ form {
     color: white; /* Cambia il colore al click */
 }
 
+.founder_name {
+    font-weight: bold; /* Grassetto */
+    color: whitesmoke; /* Colore del testo */
+    margin-top: 20px; /* Spazio sopra il testo */
+}
+
+.founder_name:hover {
+    color: mediumpurple; /* Cambia colore al passaggio del mouse */
+    text-decoration: none;
+}
+
 .percentage-block {
     text-align: center;
     font-size: clamp(1rem, 2vw, 3rem); /* Dimensione del font tra 1rem e 3rem, ma proporzionale alla larghezza della viewport */    font-weight: bold;
@@ -162,7 +173,7 @@ form {
 /* Blocco attivo */
 .block .active {
     transform: scale(1.2); /* Ingrandisci */
-    background-color: #28a745 !important; /* Verde Bootstrap */
+    background-color: mediumpurple !important; /* Verde Bootstrap */
     color: white;
     box-shadow: 4px 15px rgba(0, 0, 0, 0.3);
 }
