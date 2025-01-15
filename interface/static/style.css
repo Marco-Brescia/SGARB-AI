@@ -151,7 +151,7 @@ form {
     transform: scale(1.2); /* Ingrandisci */
     background-color: #28a745 !important; /* Verde Bootstrap */
     color: white;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Blocco inattivo */
