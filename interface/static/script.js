@@ -30,20 +30,27 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         const data = await response.json();
         if (data.result) {
             const result = data.result;
+            const confidence = data.confidence;
 
             // Seleziona i blocchi
-            const blockLeft = document.getElementById('left-block');
-            const blockRight = document.getElementById('right-block');
+            const blockLeft = document.getElementById('block_perc_left');
+            const blockRight = document.getElementById('block_perc_right');
+            const AiConfidence = document.getElementById('perc-IA');
+            const HumanConfidence = document.getElementById('perc-Real');
 
             // Aggiusta le classi in base al risultato
             if (result === 'IA') {
+                AiConfidence.innerHTML = confidence + '%';
                 blockLeft.classList.add('active');
                 blockLeft.classList.remove('inactive');
+                HumanConfidence.innerHTML = '';
                 blockRight.classList.add('inactive');
                 blockRight.classList.remove('active');
             } else {
+                HumanConfidence.innerHTML = confidence + '%';
                 blockRight.classList.add('active');
                 blockRight.classList.remove('inactive');
+                AiConfidence.innerHTML = '';
                 blockLeft.classList.add('inactive');
                 blockLeft.classList.remove('active');
             }

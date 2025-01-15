@@ -10,6 +10,7 @@ import tensorflow as tf
 def weighted_loss(y_true, y_pred):
     weight = tf.where(tf.equal(y_true, 0), 10.0, 1.0)
     return tf.reduce_mean(weight * tf.keras.losses.binary_crossentropy(y_true, y_pred))
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 
@@ -51,10 +52,9 @@ def classify():
     # Interpreta il risultato (Supponendo che la soglia sia 0.5)
     result = 'IA' if prediction[0] > 0.5 else 'Real'
 
-    # Simulazione della predizione
-    #result = random.choice(['IA', 'Real'])
+    confidence = float(prediction[0]) if result == 'IA' else 1 - float(prediction[0])
 
-    return jsonify({'result': result})
+    return jsonify({'result': result, 'confidence': f"{confidence * 100:.2f}"})
 
 if __name__ == '__main__':
     # Crea la cartella di upload se non esiste

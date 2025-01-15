@@ -12,10 +12,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
     <!--  Custom CSS -->
-    <link rel="stylesheet" href="/interface/static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 
     <!-- Custom JavaScript -->
-    <script src="static/script.js" defer></script>
+    <script src="../static/script.js" defer></script>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,14 +26,14 @@
 </head>
 
 <body class="text-center">
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+<div class="d-flex h-100 p-3 flex-column">
     <header class="masthead mb-auto position-relative">
         <div class="inner">
             <!-- Logo positioned in the top-left corner -->
-            <img src="/interface/static/images/name_white.png" alt="SGARB-AI" class="logo1" style="top: 10; left: 0; max-height: 166px;">
+            <img src="../static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo">
 
             <!-- Navigation centered -->
-            <nav class="nav nav-masthead justify-content-center pt-3">
+            <nav class="nav">
                 <a class="nav-link active" href="#">Home</a>
                 <a class="nav-link" href="#">Features</a>
                 <a class="nav-link" href="#">Contact</a>
@@ -41,14 +41,14 @@
         </div>
     </header>
     <main role="main" class="inner cover">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 align-items-center" style="max-height: 500px">
             <!-- Left block -->
             <div id="left-block" class="block">
-                <img id="imgIA" src="/interface/static/images/goat.png" alt="SGARB-AI" class="logo">
-                <div>
-                    <div>IA</div>
-                    <div id="perc-IA">---</div>
-                </div>
+                    <div class="percentage-block left" id="block_perc_left">
+                        <div>IA</div>
+                        <div id="perc-IA"></div>
+                    </div>
+                <img src="../static/images/goat.png" alt="SGARB-AI" class="image">
             </div>
 
             <!-- Center block -->
@@ -61,18 +61,19 @@
                         <input type="file" name="file" id="file" class="form-control" required>
                         <button type="submit" class="btn btn-success">Carica</button>
                     </form>
+                    <!-- Blocchi percentuali aggiunti qui -->
                 </div>
             </div>
 
             <!-- Right block -->
             <div id="right-block" class="block">
-                <img src="/interface/static/images/human.png" alt="SGARB-AI" class="logo">
-                <div>
+                <div class="percentage-block right" id="block_perc_right">
                     <div>REAL</div>
-                    <div id="perc-Real">---</div>
+                    <div id="perc-Real"></div>
                 </div>
-                </div>
+                <img src="../static/images/human.png" alt="SGARB-AI" class="image">
             </div>
+        </div>
     </main>
 
     <!-- Footer -->

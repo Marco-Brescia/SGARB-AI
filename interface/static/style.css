@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 /* Centrare il contenitore principale nella pagina */
 .cover-container {
     display: flex;
@@ -7,13 +10,13 @@
 }
 /* Layout a griglia per i blocchi */
 .row.g-5 {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* Layout iniziale con tre colonne */
-    gap: 50px; /* Distanza tra le colonne */
-    align-items: center;
+    display: inline-grid;
+    grid-template-columns: 2fr 1fr 2fr; /* Layout iniziale con tre colonne */
     justify-items: center;
+    justify-content: center;
+    align-content: center;
     width: 100%; /* Occupa tutta la larghezza disponibile */
-    max-width: 1200px; /* Larghezza massima */
+    height: 100vh;
 }
 /* Stile per i blocchi */
 .block {
@@ -26,12 +29,19 @@
 /* Blocchi specifici */
 #left-block {
     grid-column: 1; /* Posiziona a sinistra */
+    width: 100%;
+    position: relative;
+    left: -100px;
 }
 #right-block {
     grid-column: 3; /* Posiziona a destra */
+    width: 100%;
+    position: relative;
+    left: 100px;
 }
 .col-12.col-md-6 {
     grid-column: 2; /* Posiziona al centro */
+    width: 100%;
 }
 .image-placeholder {
     border: 1px solid #ccc;
@@ -47,7 +57,10 @@ form {
 }
 .logo {
     width: 250px !important;
-    height: 250px !important;
+}
+
+.image {
+    width: 1000px; /* Larghezza desiderata del contenitore */
 }
 /* Stile generale per il form */
 #upload-form {
@@ -96,4 +109,55 @@ form {
     margin-bottom: 20px;
     background-color: #2c2c2c;
     color: white;
+}
+
+/* Stile per la navigazione */
+.nav {
+    display: flex;
+    flex-direction: row; /* Organizza le scelte una dietro l'altra */
+    align-items: center; /* Centra orizzontalmente le scelte */
+    gap: 20px; /* Aumenta lo spazio tra le scelte */
+    justify-content: center;
+    font-size: 1.2em; /* Aumenta la dimensione del testo */
+    font-weight: bold; /* Rende il testo in grassetto */
+}
+
+.percentage-block {
+    text-align: center;
+    font-size: 2.0em; /* Aumenta dimensione del testo */
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccc; /* Bordo opzionale */
+    border-radius: 5px;
+    background-color: #2c2c2c; /* Sfondo simile agli altri elementi */
+    color: white;
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+}
+
+.left{
+    top: 75vh;
+    left: 100%;
+}
+
+.right{
+    top: 80vh;
+    right: 100%;
+}
+
+/* Blocco attivo */
+.block .active {
+    transform: scale(1.2); /* Ingrandisci */
+    background-color: #28a745 !important; /* Verde Bootstrap */
+    color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Blocco inattivo */
+.block .inactive {
+    transform: scale(0.9); /* Rimpicciolisci */
+    background-color: #6c757d !important; /* Grigio Bootstrap */
+    color: #fff;
+    box-shadow: none;
 }
