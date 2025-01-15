@@ -75,7 +75,7 @@ form {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: whitesmoke;
     color: #333;
 }
 /* Stile per il pulsante */
@@ -83,7 +83,7 @@ form {
     margin-top: 10px;
     width: 100px;
     padding: 10px;
-    background-color: #FFFF;
+    background-color: whitesmoke;
     border: none;
     border-radius: 5px;
     color: black;
@@ -120,6 +120,20 @@ form {
     justify-content: center;
     font-size: 1.2em; /* Aumenta la dimensione del testo */
     font-weight: bold; /* Rende il testo in grassetto */
+}
+.nav-link {
+    color: silver; /* Colore del testo */
+    text-decoration: none; /* Rimuove il sottolineato */
+    transition: color 0.3s ease; /* Aggiunge una transizione graduale */
+}
+
+.nav-link:hover, .nav-link:active:hover {
+    color: white; /* Cambia il colore al passaggio del mouse */
+    border-bottom: .20rem solid gray;
+}
+
+.nav-link:active {
+    color: white; /* Cambia il colore al click */
 }
 
 .percentage-block {
@@ -164,4 +178,19 @@ form {
 .block .active_result {
     filter: invert(1); /* Inverte i colori, rendendo l'immagine bianca */
     transition: filter 0.5s ease-in-out; /* Aggiunge una transizione graduale */
+}
+
+.founder-image-container {
+    width: 150px; /* Imposta larghezza del cerchio */
+    height: 150px; /* Imposta altezza del cerchio */
+    border: 5px solid whitesmoke; /* Colore e spessore del bordo */
+    border-radius: 50%; /* Rende il contenitore circolare */
+    overflow: hidden; /* Nasconde il contenuto in eccesso */
+    margin: 0 auto; /* Centra l'immagine all'interno del contenitore genitore */
+}
+
+.founder-image-container img {
+    width: 100%; /* Fa sì che l'immagine si adatti al contenitore */
+    height: 100%; /* Assicura che l'immagine riempia il contenitore */
+    object-fit: cover; /* Mantiene il rapporto dell'immagine centrando e ritagliando se necessario */
 }
