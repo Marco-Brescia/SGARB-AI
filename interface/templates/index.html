@@ -7,15 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SGARB-AI Image Classifier</title>
+    <title>SGARB-AI</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
     <!--  Custom CSS -->
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 
     <!-- Custom JavaScript -->
-    <script src="static/script.js" defer></script>
+    <script src="../static/script.js" defer></script>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,36 +26,34 @@
 </head>
 
 <body class="text-center">
-
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+<div class="d-flex h-100 p-3 flex-column">
     <header class="masthead mb-auto position-relative">
         <div class="inner">
             <!-- Logo positioned in the top-left corner -->
-            <img src="/static/images/logo_2su1_w.png" alt="SGARB-AI" class="logo img-fluid position-absolute" style="top: 0; left: 0; max-height: 166px;">
+            <img src="../static/images/name_w.png" alt="SGARB-AI" class="logo">
 
             <!-- Navigation centered -->
-            <nav class="nav nav-masthead justify-content-center pt-3">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Contact</a>
+            <nav class="nav">
+                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link" href="/features">Features</a>
+                <a class="nav-link" href="/contact">Contacts</a>
             </nav>
         </div>
     </header>
-
     <main role="main" class="inner cover">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 align-items-center" style="max-height: 500px">
             <!-- Left block -->
-            <div id="left-block" class="block col-12 col-md-2 text-center shadow-sm py-4 pr-6 rounded ms-md-4">
-                <img src="/static/images/goat.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
-                <div>
-                    <div>IA</div>
-                    <div id="perc-IA">---</div>
-                </div>
+            <div id="left-block" class="block">
+                    <div class="percentage-block left inactive" id="block_perc_left">
+                        <div>IA</div>
+                        <div id="perc-IA"></div>
+                    </div>
+                <img src="../static/images/goat.png" alt="SGARB-AI" class="image" id="img-Real">
             </div>
 
             <!-- Center block -->
             <div class="col-12 col-md-6 text-center">
-                <div class="block bg-white shadow-sm p-4 rounded">
+                <div class="block">
                     <div id="image-placeholder" class="image-placeholder d-flex justify-content-center align-items-center mb-3">
                         <p>Inserisci immagine</p>
                     </div>
@@ -63,16 +61,17 @@
                         <input type="file" name="file" id="file" class="form-control" required>
                         <button type="submit" class="btn btn-success">Carica</button>
                     </form>
+                    <!-- Blocchi percentuali aggiunti qui -->
                 </div>
             </div>
 
             <!-- Right block -->
-            <div id="right-block" class="block col-12 col-md-2 text-center shadow-sm py-4 rounded me-md-4">
-                <img src="/static/images/human.png" alt="SGARB-AI" class="logo img-fluid" style="top: 0; left: 0; max-height: 70px;">
-                <div>
+            <div id="right-block" class="block">
+                <div class="percentage-block right inactive" id="block_perc_right">
                     <div>REAL</div>
-                    <div id="perc-Real">---</div>
+                    <div id="perc-Real"></div>
                 </div>
+                <img src="../static/images/human.png" alt="SGARB-AI" class="image" id="img-IA">
             </div>
         </div>
     </main>
@@ -80,7 +79,7 @@
     <!-- Footer -->
     <footer class="mastfoot mt-auto">
         <div class="inner">
-            <p>&copy; 2025 SGARB-AI <i>by The Simps</i>. Diritti non ne abbiamo.</p>
+            <p>&copy; 2025 SGARB-AI <i>by The Simps</i>.</p>
         </div>
     </footer>
 </div>

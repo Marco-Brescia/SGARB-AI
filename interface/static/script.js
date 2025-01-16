@@ -33,23 +33,31 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
             const confidence = data.confidence;
 
             // Seleziona i blocchi
-            const blockLeft = document.getElementById('left-block');
-            const blockRight = document.getElementById('right-block');
-            const percIA = document.getElementById('perc-IA');
-            const percReal = document.getElementById('perc-Real');
+            const blockLeft = document.getElementById('block_perc_left');
+            const blockRight = document.getElementById('block_perc_right');
+            const AiImage = document.getElementById('img-IA');
+            const RealImage = document.getElementById('img-Real');
+            const AiConfidence = document.getElementById('perc-IA');
+            const HumanConfidence = document.getElementById('perc-Real');
 
             // Aggiusta le classi in base al risultato
             if (result === 'IA') {
-                percReal.innerHTML = '--';
+                RealImage.classList.add('active_result');
+                animateConfidence(AiConfidence, confidence);
                 blockLeft.classList.add('active');
                 blockLeft.classList.remove('inactive');
+                AiImage.classList.remove('active_result');
+                HumanConfidence.innerHTML = '';
                 blockRight.classList.add('inactive');
                 blockRight.classList.remove('active');
                 percIA.innerHTML = `${confidence}`;
             } else {
-                percIA.innerHTML = '--';
+                AiImage.classList.add('active_result');
+                animateConfidence(HumanConfidence, confidence);
                 blockRight.classList.add('active');
                 blockRight.classList.remove('inactive');
+                RealImage.classList.remove('active_result');
+                AiConfidence.innerHTML = '';
                 blockLeft.classList.add('inactive');
                 blockLeft.classList.remove('active');
                 percReal.innerHTML = `${confidence}`;
@@ -63,3 +71,20 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
         alert('Errore nella comunicazione con il server.');
     }
 });
+
+function animateConfidence(element, confidence) {
+    let currentConfidence = 0;
+    const targetConfidence = parseFloat(confidence);
+    const interval = setInterval(() => {
+        if (currentConfidence >= targetConfidence) {
+            clearInterval(interval);
+            element.innerHTML = `${targetConfidence.toFixed(2)}%`;
+        } else {
+            currentConfidence += 1; // Increment by 1 for each interval
+
+            // Genera due cifre decimali casuali tra 0 e 99
+            const randomDecimals = Math.floor(Math.random() * 100);
+            element.innerHTML = `${currentConfidence.toFixed(0)}.${randomDecimals.toString().padStart(2, '0')}%`;
+        }
+    }, 12); // 12ms interval for smooth animation
+}
