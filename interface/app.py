@@ -10,12 +10,12 @@ import random as random
 #def weighted_loss(y_true, y_pred):
 #    weight = tf.where(tf.equal(y_true, 0), 10.0, 1.0)
 #    return tf.reduce_mean(weight * tf.keras.losses.binary_crossentropy(y_true, y_pred))
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 
 # Percorso del modello (relativo alla cartella interface)
 #MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'new', 'model.h5')
+
 
 # Carica il modello pre-addestrato
 #model = load_model(MODEL_PATH, custom_objects={'weighted_loss': weighted_loss})

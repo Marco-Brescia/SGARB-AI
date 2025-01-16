@@ -50,6 +50,7 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
                 HumanConfidence.innerHTML = '';
                 blockRight.classList.add('inactive');
                 blockRight.classList.remove('active');
+                percIA.innerHTML = `${confidence}`;
             } else {
                 AiImage.classList.add('active_result');
                 animateConfidence(HumanConfidence, confidence);
@@ -59,12 +60,14 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
                 AiConfidence.innerHTML = '';
                 blockLeft.classList.add('inactive');
                 blockLeft.classList.remove('active');
+                percReal.innerHTML = `${confidence}`;
             }
         } else {
             alert('Errore nella classificazione');
         }
     } catch (err) {
         console.error('Errore:', err);
+        print(err);
         alert('Errore nella comunicazione con il server.');
     }
 });

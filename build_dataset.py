@@ -7,7 +7,7 @@ from pathlib import Path
 # Definisci il percorso della cartella di origine e della cartella di destinazione
 base_dir = Path("filtered_images_Varianza")
 output_base_dir = Path("DatasetTraining(NotProcessed)/AI")  # Cartella di destinazione per AI_LD
-output_base_dir_real = Path("Dataset Training(NotProcessed)/REAL")  # Cartella di destinazione per REAL
+output_base_dir_real = Path("DatasetTraining(NotProcessed)/REAL")  # Cartella di destinazione per REAL
 
 # Crea le cartelle di destinazione se non esistono
 output_base_dir.mkdir(parents=True, exist_ok=True)
