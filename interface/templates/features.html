@@ -72,7 +72,17 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .section:nth-child(odd) {
+      animation-name: slideInLeft;
+    }
+
+    .section:nth-child(even) {
+      animation-name: slideInRight;
     }
 
     .section .text {
@@ -96,6 +106,63 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .text {
+      flex: 1 1 50%;
+      padding: 20px;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .text:hover {
+      transform: translateY(-10px);
+    }
+
+
   </style>
 </head>
 
@@ -109,8 +176,8 @@
 
       <!-- Navigation centered -->
       <nav class="nav">
-        <a class="nav-link" href="/">Home</a>
         <a class="nav-link active" href="/features">Features</a>
+        <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/contact">Contacts</a>
       </nav>
     </div>
