@@ -43,7 +43,7 @@ fi
 # Crea l'ambiente Conda dal file .yml
 echo "Creando l'ambiente Conda dall'file AmbienteMacOS.yml..."
 conda env create -f AmbienteMacOS.yml
-
+conda init bash
 echo "Ambiente Conda creato con successo!"
 
 printf "
