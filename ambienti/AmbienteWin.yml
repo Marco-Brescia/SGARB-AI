@@ -1,4 +1,4 @@
-name: py310
+name: py310Win
 channels:
   - conda-forge
   - defaults
