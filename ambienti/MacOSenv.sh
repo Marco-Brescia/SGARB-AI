@@ -7,7 +7,7 @@ then
 
     # Scarica il file di installazione di Anaconda
     echo "Scaricando Anaconda..."
-    wget https://repo.anaconda.com/archive/Anaconda3-2023.11-MacOSX-x86_64.sh -O anaconda_installer.sh
+    wget --progress=bar:force https://repo.anaconda.com/archive/Anaconda3-2024.06-1-MacOSX-arm64.sh -O anaconda_installer.sh
 
     # Rendi eseguibile il file di installazione
     chmod +x anaconda_installer.sh
