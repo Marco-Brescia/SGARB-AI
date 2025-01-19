@@ -34,7 +34,7 @@ else
     exit 1
 fi
 
-# Verifica se il file environment.yml esiste nella directory corrente
+# Verifica se il file AmbienteMacOS.yml esiste nella directory corrente
 if [ ! -f "AmbienteMacOS.yml" ]; then
     echo "Il file AmbienteMacOS.yml non è presente nella directory corrente!"
     exit 1
