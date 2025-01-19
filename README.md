@@ -289,7 +289,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
    │   └── 0000xxxx.jpg
     ```
 
-## ️🏋️‍♂️Training del modello
+## ️🏋️‍♂️ Training del modello
 
 1. Modificare i valori delle variabili `dataset_dir`, `test_dir` e `output_dir` nel file `main.py` per specificare i percorsi delle cartelle di input e di output.
    - Esempio:
