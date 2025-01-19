@@ -1,5 +1,7 @@
 # SGARB-AI
 
+![SGARB-AI](interface/static/images/logo_2su1_w.png)
+
 ## Gruppo
 
 Il progetto è stato realizzato dal gruppo **Symposium**.
