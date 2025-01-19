@@ -229,7 +229,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 > **Nota:** Per evitare confusione, si consiglia di aggiungere l'etichetta (NotProcessed) alle cartelle di output. In questa fase, le immagini non sono ancora utilizzabili dal modello, poiché non rispettano la dimensione di 224 x 224 pixel richiesta. Al momento, le immagini sono ancora 256 x 256 pixel. Il nome `DatasetTraining(NotProcessed)` è da considerare come placeholder.
 
 ## 🖼️ Preprocessing delle immagini
-1. Rinominare la variabile relativa alla cartella processata in `preprocessed_path` all'interno di `data_preprocess.py`. Inoltre, aggiornare i percorsi delle cartelle di input con l'etichetta `NotProcessed` in `input_ai_path` e `input_real_path` nella sezione `__main__`, utilizzando i nomi delle cartelle ricavati dai passaggi precedenti.
+1. Rinominare la variabile relativa alla cartella processata in `processed_path` all'interno di `data_preprocess.py`. Inoltre, aggiornare i percorsi delle cartelle di input con l'etichetta `NotProcessed` in `input_ai_path` e `input_real_path` nella sezione `__main__`, utilizzando i nomi delle cartelle ricavati dai passaggi precedenti.
    - Esempio:
     ```python
    def create_output_folders(base_path):
