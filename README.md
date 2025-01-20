@@ -321,3 +321,24 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 5. `main.py`
 
 
+## 🌐 Esecuzione dell'interfaccia
+
+Per avviare l'interfaccia web di **SGARB-AI**, segui questi passaggi:
+
+1. Apri un terminale o prompt dei comandi.
+2. Naviga alla cartella `/interface` del progetto:
+    ```bash
+    cd /percorso/del/progetto/interface
+    ```
+3. Esegui il file `app.py` utilizzando Python:
+    ```bash
+    python app.py
+    ```
+4. Una volta avviato, il terminale mostrerà un messaggio simile a questo:
+    ```
+    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    ```
+5. Apri un browser e vai all'indirizzo [http://127.0.0.1:5000](http://127.0.0.1:5000). Visualizzerai l'interfaccia grafica del progetto.
+
+> **Nota:** Assicurati che tutte le dipendenze richieste per il progetto siano installate e che l'ambiente virtuale sia attivo.
+
