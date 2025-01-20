@@ -4,7 +4,7 @@
 if ! command -v conda &> /dev/null; then
     echo "Anaconda non trovato, procedo con l'installazione..."
 
-    # Controlla se `curl` è installato
+    # Controlla se curl è installato
     if ! command -v curl &> /dev/null; then
         echo "Errore: il comando 'curl' non è installato. Installalo e riprova."
         exit 1
@@ -59,7 +59,7 @@ fi
 # Crea l'ambiente Conda dal file .yml
 echo "Creando l'ambiente Conda dall'file AmbienteMacOS.yml..."
 conda env create -f AmbienteMacOS.yml
-conda init bash
+conda init zsh
 echo "Ambiente Conda creato con successo!"
 
 printf "
