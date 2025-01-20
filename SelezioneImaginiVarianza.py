@@ -98,7 +98,7 @@ def save_image(features_reduced, folder_name, selected_indices=None):
     reduced_2d = pca_2d.fit_transform(features_reduced)
 
     # Crea un array fittizio di "cluster_labels" per la visualizzazione
-    cluster_labels = np.zeros(reduced_2d.shape[0])  # Tutti nel cluster 0 (puoi cambiarlo se hai un clustering vero)
+    cluster_labels = np.zeros(reduced_2d.shape[0])
 
     # Visualizza tutte le immagini come pallini blu
     plt.scatter(reduced_2d[:, 0], reduced_2d[:, 1], c=cluster_labels, cmap='tab20', marker='o', alpha=0.6, label='Immagini')
