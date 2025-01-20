@@ -25,15 +25,15 @@ def build_model(hp, img_width, img_height):
     model.compile(
         optimizer=hp.Choice('optimizer', values=['adam', 'sgd']),
         loss=weighted_loss,
-        metrics=['accuracy', 'Recall']
+        metrics=['accuracy', specificity]
     )
 
     return model
 
 def weighted_loss(y_true, y_pred):
-     # Peso per la classe AI (etichetta 0)
-    weight_for_0 = 1.5  # Maggiore peso per la classe AI
-    weight_for_1 = 1.0  # Ponderazione per la classe REAL (etichetta 1)
+    # Peso maggiore per la classe AI (etichetta 0)
+    weight_for_0 = 2.0  # Maggiore peso per penalizzare FP
+    weight_for_1 = 1.0  # Peso per la classe REAL (etichetta 1)
 
     y_true = tf.cast(y_true, tf.float32)
     y_pred = tf.clip_by_value(y_pred, K.epsilon(), 1.0 - K.epsilon())
@@ -42,10 +42,23 @@ def weighted_loss(y_true, y_pred):
     cross_entropy = - (y_true * tf.math.log(y_pred) + (1 - y_true) * tf.math.log(1 - y_pred))
 
     # Aggiungi i pesi
-    weight = y_true * weight_for_0 + (1 - y_true) * weight_for_1
+    weight = y_true * weight_for_1 + (1 - y_true) * weight_for_0
     weighted_loss = cross_entropy * weight
 
     return tf.reduce_mean(weighted_loss)
+
+# Funzione per calcolare la specificità
+def specificity(y_true, y_pred):
+    # Converti le probabilità in previsioni binarie (0 o 1)
+    y_pred_binary = tf.cast(y_pred > 0.5, tf.float32)
+
+    # Calcola i veri negativi (TN) e i falsi positivi (FP)
+    tn = tf.reduce_sum((1 - y_true) * (1 - y_pred_binary))  # AI classificato correttamente
+    fp = tf.reduce_sum((1 - y_true) * y_pred_binary)  # AI classificato erroneamente come REAL
+
+    # Evita divisioni per zero
+    specificity = tn / (tn + fp + K.epsilon())
+    return specificity
 
 #vecchia funzione di loss
 # def weighted_loss(y_true, y_pred):

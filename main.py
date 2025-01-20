@@ -8,9 +8,9 @@ from utils import create_output_dir, save_model
 
 def main():
     # Definisci i percorsi delle cartelle
-    dataset_dir = ""  # Sostituisci con il percorso del dataset ES: "DatasetTraining(Processed)"
-    test_dir = ""   # Sostituisci con il percorso della cartella di test ES: "Test"
-    output_dir = ""         # Sostituisci con il percorso della cartella di output dove salvare i risultati ES: 'modello/nuovo/'
+    dataset_dir = "DatasetTrainingDistanzaCoseno_Distribuito(Processed)"  # Sostituisci con il percorso del dataset ES: "DatasetTraining(Processed)"
+    test_dir = "Test"   # Sostituisci con il percorso della cartella di test ES: "Test"
+    output_dir = "modello/specificity/"  # Sostituisci con il percorso della cartella di output dove salvare i risultati ES: 'modello/nuovo/'
 
     # Crea la cartella di output se non esiste
     create_output_dir(output_dir)
@@ -38,10 +38,10 @@ def main():
     y_pred_binary = (y_pred > 0.5).astype(int)
 
     # Calcolare le metriche e salvarle
-    precision, recall, accuracy = compute_and_save_metrics(y_true, y_pred_binary, output_dir)
+    precision, recall, accuracy, specificity = compute_and_save_metrics(y_true, y_pred_binary, output_dir)
 
     # Tracciare i grafici per precision, recall, accuracy, ecc.
-    plot_metrics(history, accuracy, recall, precision, output_dir)
+    plot_metrics(history, accuracy, recall, precision, specificity, y_true, y_pred, output_dir)
 
     # Salvare il modello addestrato
     save_model(model, output_dir)
