@@ -3,22 +3,19 @@ import os
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
+from model_build import weighted_loss, specificity
 import tensorflow as tf
 import random as random
 
-# Definizione della funzione di perdita personalizzata
-def weighted_loss(y_true, y_pred):
-    weight = tf.where(tf.equal(y_true, 0), 10.0, 1.0)
-    return tf.reduce_mean(weight * tf.keras.losses.binary_crossentropy(y_true, y_pred))
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 
 # Percorso del modello (relativo alla cartella interface)
-MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'new', 'model.h5')
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'modello', 'specificity', 'model.h5')
 
 
 # Carica il modello pre-addestrato
-model = load_model(MODEL_PATH, custom_objects={'weighted_loss': weighted_loss})
+model = load_model(MODEL_PATH, custom_objects={'weighted_loss': weighted_loss, 'specificity': specificity})
 
 # Preprocessing dell'immagine
 def preprocess_image(image_path):
@@ -58,10 +55,10 @@ def classify():
     os.remove(file_path)  # Rimuove l'immagine caricata dopo la classificazione
 
     # Interpreta il risultato (Supponendo che la soglia sia 0.5)
-    result = 'IA' if prediction[0] > 0.5 else 'Real'
+    result = 'Real' if prediction[0] > 0.5 else 'IA'
 #    result=random.choice(['IA','Real'])
 #    confidence=0.51
-    confidence = float(prediction[0]) if result == 'IA' else 1 - float(prediction[0])
+    confidence = float(prediction[0]) if result == 'Real' else 1 - float(prediction[0])
 
     return jsonify({'result': result, 'confidence': f"{confidence * 100:.2f}"})
 
