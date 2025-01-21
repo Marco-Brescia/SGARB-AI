@@ -25,14 +25,15 @@ Il progetto è stato realizzato dal gruppo **Symposium**.
     - 🧪 [Creazione del TestSet](#-creazione-del-testset)
     - 🏋️‍♂️ [Training del modello](#-training-del-modello)
     - 🔄 [Ordine di esecuzione degli script](#-ordine-di-esecuzione-degli-script)
+    - 🌐 [Esecuzione dell'interfaccia](#-esecuzione-dellinterfaccia)
 
 ## 📝 Introduzione
 
-Il progetto **SGARB-AI** è stato sviluppato come parte del corso di **Intelligenza Artificiale** presso l'**Università degli Studi di Salerno**, nell'anno accademico **2024-2025**. L'obiettivo principale di questo progetto è l'implementazione di un sistema di riconoscimento delle immagini, utilizzando tecniche avanzate di deep learning, per distinguere tra opere d'arte reali e arte generata tramite algoritmi di intelligenza artificiale.
+Il progetto **SGARB-AI** è stato sviluppato come parte del corso di **Intelligenza Artificiale** presso l'**Università degli Studi di Salerno**, nell'anno accademico **2024-2025**. L'obiettivo principale di questo progetto è l'implementazione di un sistema di riconoscimento delle immagini, utilizzando tecniche di deep learning, per distinguere tra opere d'arte reali e arte generata tramite algoritmi di intelligenza artificiale.
 
-Attraverso l'analisi e il confronto di immagini provenienti da due categorie principali — **Arte Reale** e **Arte AI Generata** — il progetto mira a sviluppare un modello in grado di riconoscere le differenze tra arte prodotta da esseri umani e quella creata da algoritmi avanzati, con particolare attenzione alla riduzione del dataset e all'ottimizzazione del modello per una classificazione accurata.
+Attraverso l'analisi e il confronto di immagini provenienti da due categorie principali — **REALE** e **IA** — il progetto mira a sviluppare un modello in grado di riconoscere le differenze tra arte prodotta da esseri umani e quella creata da algoritmi avanzati, con particolare attenzione alla riduzione del dataset e all'ottimizzazione del modello per una classificazione accurata.
 
-In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e la classificazione accurata della classe **AI Generata**, con l'intento di migliorare la capacità del modello di identificare le immagini generate tramite intelligenza artificiale, riducendo al minimo i falsi negativi in questa categoria.
+In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e la classificazione accurata della classe **IA**, con l'intento di migliorare la capacità del modello di identificare le immagini generate tramite intelligenza artificiale, riducendo al minimo i falsi negativi in questa categoria.
 
 
 # 📦 Requisiti
@@ -111,6 +112,7 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 
 
 # 🚀 Come replicare il progetto
+> **Note:** Per chi preferisse non replicare interamente il progetto e desiderasse saltare la fase di preprocessing dei dati, il dataset è già disponibile su GitHub nella cartella `DatasetTrainingDistanzaCoseno_Distribuito(Processed)`.
 
 ## 🗂️ Reperire il dataset
 
@@ -187,7 +189,7 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 
 ## 🔢 Selezione immagini con Coseno Distribuito per la riduzione del dataset per il training
 1. File interessato: `SelezioneImmaginiCosenoDistribuito.py`
-2. Puntare il percorso del dataset nella variabile `source_dir`, dei risultati 
+2. Puntare il percorso del dataset nella variabile `source_dir`, aggiungere alle variabili `output_dir` e `grafici_dir` i path delle cartelle di destinazione.
    - Esempio:
     ```python
     source_dir = Path("percorso/del/dataset/train ES: ../../real-ai-art/train") # Cartella contenente il dataset
@@ -229,13 +231,13 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 ## 📊 Creazione del dataset per il training
 1. File interessato: `build_dataset.py`
 2. Variabili interresate: `base_dir`, `output_base_dir`, `output_base_dir_real`
-1. Aggiornare il valore di `base_dir` con il percorso della cartella creata dallo script precedente. Inoltre, modificare le variabili `output_base_dir` e `output_base_dir_real`.
+1. Aggiornare il valore di `base_dir` con il percorso della cartella creata dallo script precedente. Inoltre, modificare le variabili `output_base_dir` e `output_base_dir_real` aggiungendo i path delle cartelle di output.
    - Esempio:
     ```python
    # Cartella contenente le immagini selezionate 
    base_dir = Path("percorso/della/cartella/risultati")  # Cartella contenente le immagini selezionate
    # Cartelle di destinazione per i dataset
-   output_base_dir = Path("DatasetTraining(NotProcessed)/AI")  # Cartella di destinazione per AI_LD
+   output_base_dir = Path("DatasetTraining(NotProcessed)/AI")  # Cartella di destinazione per AI
    output_base_dir_real = Path("DatasetTraining(NotProcessed)/REAL")  # Cartella di destinazione per REAL
     ```
 2. Eseguire lo script `build_dataset.py` per creare il dataset per il training.
@@ -256,24 +258,28 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 > **Nota:** Per evitare confusione, si consiglia di aggiungere l'etichetta (NotProcessed) alle cartelle di output. In questa fase, le immagini non sono ancora utilizzabili dal modello, poiché non rispettano la dimensione di 224 x 224 pixel richiesta. Al momento, le immagini sono ancora 256 x 256 pixel. Il nome `DatasetTraining(NotProcessed)` è da considerare come placeholder.
 
 ## 🖼️ Preprocessing delle immagini
-1. Rinominare la variabile relativa alla cartella processata in `processed_path` all'interno di `data_preprocess.py`. Inoltre, aggiornare i percorsi delle cartelle di input con l'etichetta `NotProcessed` in `input_ai_path` e `input_real_path` nella sezione `__main__`, utilizzando i nomi delle cartelle ricavati dai passaggi precedenti.
-   - Esempio:
-    ```python
-   def create_output_folders(base_path):
-    processed_path = os.path.join(base_path, "cartella_di_destinazione(Processed)")
-    ai_path = os.path.join(processed_path, "AI")
-    real_path = os.path.join(processed_path, "REAL")
+1. File interessati: `data_preprocess.py`
+2. Variabili interessate: `processed_path` ,`input_real_path`,`input_ai_path`
+3. Aggiungere path alle variabile
+4. i`processed_path`,`input_real_path`,`input_ai_path`
+      ```python
+    def create_output_folders(base_path):
+    processed_path = os.path.join(base_path, "cartella_di_destinazione(Processed)") #cartella di output dove ci saranno le immagini processate
+    ai_path = os.path.join(processed_path, "AI") #cartella interna a processed_path
+    real_path = os.path.join(processed_path, "REAL") #cartella interna a processed_path
    
-       os.makedirs(ai_path, exist_ok=True)
-       os.makedirs(real_path, exist_ok=True)
+    os.makedirs(ai_path, exist_ok=True)
+    os.makedirs(real_path, exist_ok=True)
    
-       return ai_path, real_path
-    ```
+    return ai_path, real_path
+      ```
+4. Variabili interessate: `input_real_path`,`input_ai_path`
+5. Aggiungere path alla variabile `input_real_path`,`input_ai_path` (Sostituire `nome_cartella(NotProcessed)` con il nome della cartella in output dallo script precedente)
    ```python
    if __name__ == "__main__":
     base_path = os.path.dirname(os.path.abspath(__file__))
-    input_ai_path = os.path.join(base_path, "nome_cartella(NotProcessed)", "AI")
-    input_real_path = os.path.join(base_path, "nome_cartella(NotProcessed)", "REAL")
+    input_ai_path = os.path.join(base_path, "nome_cartella(NotProcessed)", "AI") #cartella AI dentro nome_cartella(NotProcessed)
+    input_real_path = os.path.join(base_path, "nome_cartella(NotProcessed)", "REAL") #cartella REAL dentro nome_cartella(NotProcessed)
     ```
 2. Eseguire lo script `data_preprocess.py` per preprocessare le immagini.
 3. Le cartelle di output avranno questa struttura:
@@ -293,8 +299,9 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 > **Nota:** Le immagini sono state ridimensionate a 224 x 224 pixel e sono ora pronte per il training. È possibile modificare i percorsi delle cartelle di destinazione tramite le variabili `ai_path` e `real_path`; tuttavia, questa operazione è fortemente sconsigliata, in quanto richiederebbe ulteriori modifiche agli script per garantirne il corretto funzionamento.
 
 ## 🧪 Creazione del TestSet
-1. Modificare i valori delle variabili `base_dir`, `output_base_dir` e `output_base_dir_real` nel file `build_testset.py` per specificare i nomi delle cartelle di input (relative ai dati di test) e delle cartelle di output desiderate.
-   - Esempio:
+1. File interessati: `build_testset.py`
+2. Variabili interessate: `base_dir`, `output_base_dir` e `output_base_dir_real`
+3. Aggiungere path alle cartelle `base_dir`, `output_base_dir` e `output_base_dir_real`
     ```python
    # Cartella contenente le immagini selezionate 
    base_dir = Path("percorso_della_cartella_test ES: ../../real-ai-art/test")  # Cartella contenente le immagini per il test
@@ -321,7 +328,6 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 ## ️🏋️‍♂️ Training del modello
 
 1. Modificare i valori delle variabili `dataset_dir`, `test_dir` e `output_dir` nel file `main.py` per specificare i percorsi delle cartelle di input e di output.
-   - Esempio:
     ```python
    def main():
     # Definisci i percorsi delle cartelle
@@ -330,15 +336,15 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
     output_dir = ""         # Sostituisci con il percorso della cartella di output dove salvare i risultati ES: 'modello/nuovo/'
     ```
 2. Eseguire lo script `main.py` per avviare il training del modello.
-3. I risultati del training saranno salvati nella cartella di output specificata.
+3. I risultati del training saranno salvati nella cartella di output specificata `output_dir`.
 4. Il modello addestrato sarà salvato come `model.h5` nella cartella di output.
 5. I risultati del training saranno salvati come grafici nella cartella di output.
 6. I risultati del training includono:
-    - Grafico dell'accuratezza e recall
+    - Grafico dell'accuratezza e specificity
     - Grafico della loss
     - Grafico della matrice di confusione
-    - Grafico della curva Precision-Recall
-    - Grafico precision, recall, accuracy
+    - Grafico della curva ROC
+    - Grafico precision, recall, accuracy, specificity
 
 # 🔄 Ordine di esecuzione degli script
 1. `SelezioneImmaginiCosenoDistribuito.py`
@@ -347,6 +353,8 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 4. `build_testset.py`
 5. `main.py`
 
+
+> Se si è scelto di usare il Dataset già processato, è necessario solo il passaggio n.5
 
 ## 🌐 Esecuzione dell'interfaccia
 
