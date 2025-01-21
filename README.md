@@ -15,7 +15,8 @@ Il progetto è stato realizzato dal gruppo **Symposium**.
 ## Indice
 1. 📝 [Introduzione](#-introduzione)
 2. 📦 [Requisiti](#-requisiti)
-3. 🚀 [Come replicare il progetto](#-come-replicare-il-progetto)
+3. 📦 [Gestione modelli con Git LFS](#-gestione-dei-modelli-con-git-lfs)
+4. 🚀 [Come replicare il progetto](#-come-replicare-il-progetto)
     - 🗂️ [Reperire il dataset](#-reperire-il-dataset)
     - 🗑️ [Eliminazione cartelle non utilizzate](#-eliminazione-cartelle-non-utilizzate)
     - 🔢 [Selezione immagini con Coseno Distribuito per la riduzione del dataset per il training](#-selezione-immagini-con-coseno-distribuito-per-la-riduzione-del-dataset-per-il-training)
@@ -42,6 +43,8 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 
 - In alternativa, puoi scaricare e installare manualmente Anaconda da questo link, scegliendo la versione adatta al tuo sistema operativo.
     - [Anaconda](https://repo.anaconda.com/archive)
+
+
 
 ## MacOS
 
@@ -84,6 +87,28 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 3. Segui le istruzioni nel terminale o nel prompt dei comandi per completare l'installazione dell'ambiente.
 4. Non chiudere il terminale o il prompt dei comandi finché l'installazione non è completata.
 5. Se l'installazione è completata, puoi chiudere il terminale o il prompt dei comandi.
+
+## 📦 Gestione dei modelli con Git LFS
+1. File interessati: file con estensione `.h5`
+2. Se aprendo un file .h5 trovi il seguente contenuto:
+```
+  version https://git-lfs.github.com/spec/v1
+  oid sha256:9c5d3e1a842c7b51e03a1a6bd2d3b8499a7d543e71916a67f3f3280e3b7d9e7b
+  size 10485760
+```
+Significa che il file è un segnaposto e il contenuto reale non è ancora stato scaricato.
+3. Per scaricare i file completi, utilizza il seguente comando:
+
+ ```bash
+  git lfs pull
+ ```
+
+- Questo comando scaricherà i file reali dal server remoto, rendendoli pronti per l’uso.
+
+
+In alcuni casi, i file vengono scaricati automaticamente durante il git clone o il git pull. Tuttavia, se trovi file .h5 che appaiono come segnaposto (con il contenuto testuale mostrato sopra), esegui manualmente git lfs pull per ottenere i dati completi.
+>**Nota:** Git LFS è già installato nell’ambiente di lavoro preconfigurato, quindi non è necessario installarlo manualmente.
+
 
 # 🚀 Come replicare il progetto
 
@@ -161,8 +186,8 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 2. Eliminare le cartelle che hanno il prefisso `AI_SD` in entrambe le cartelle `train` e `test` poiché non sono utilizzate per il progetto.
 
 ## 🔢 Selezione immagini con Coseno Distribuito per la riduzione del dataset per il training
-1. Puntare il percorso del dataset nella variabile `source_dir` nel file `SelezioneImmaginiCosenoDistribuito.py` 
-2. Cambiare il nome delle cartelle nelle variabili `output_dir` e `grafici_dir` nel file `SelezioneImmaginiCosenoDistribuito.py`
+1. File interessato: `SelezioneImmaginiCosenoDistribuito.py`
+2. Puntare il percorso del dataset nella variabile `source_dir`, dei risultati 
    - Esempio:
     ```python
     source_dir = Path("percorso/del/dataset/train ES: ../../real-ai-art/train") # Cartella contenente il dataset
@@ -172,7 +197,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
     grafici_dir.mkdir(exist_ok=True)
     ```
 3. Eseguire lo script `SelezioneImmaginiCosenoDistribuito.py` per selezionare le immagini.
-4. La cartella di output avrà questa struttura:
+4. La cartella di output `output_dir` avrà questa struttura:
     ```
     nome_cartella
    ├── AI
@@ -202,7 +227,9 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
     ```
 
 ## 📊 Creazione del dataset per il training
-1. Aggiornare il valore di `base_dir` con il percorso della cartella creata dallo script precedente. Inoltre, modificare le variabili `output_base_dir` e `output_base_dir_real` nel file `build_dataset.py` per riflettere i nomi delle cartelle di output desiderate.
+1. File interessato: `build_dataset.py`
+2. Variabili interresate: `base_dir`, `output_base_dir`, `output_base_dir_real`
+1. Aggiornare il valore di `base_dir` con il percorso della cartella creata dallo script precedente. Inoltre, modificare le variabili `output_base_dir` e `output_base_dir_real`.
    - Esempio:
     ```python
    # Cartella contenente le immagini selezionate 
