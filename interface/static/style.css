@@ -125,15 +125,16 @@ form {
     color: silver; /* Colore del testo */
     text-decoration: none; /* Rimuove il sottolineato */
     transition: color 0.3s ease; /* Aggiunge una transizione graduale */
+    border-bottom: .20rem solid transparent; /* Aggiunge una linea sotto il testo */
 }
 
 .nav-link:hover, .nav-link:active:hover {
-    color: white; /* Cambia il colore al passaggio del mouse */
+    color: white !important; /* Cambia il colore al passaggio del mouse */
     border-bottom: .20rem solid gray;
 }
 
 .nav-link:active {
-    color: white; /* Cambia il colore al click */
+    color: white !important; /* Cambia il colore al click */
 }
 
 .founder_name {
@@ -204,4 +205,13 @@ form {
     width: 100%; /* Fa sì che l'immagine si adatti al contenitore */
     height: 100%; /* Assicura che l'immagine riempia il contenitore */
     object-fit: cover; /* Mantiene il rapporto dell'immagine centrando e ritagliando se necessario */
+}
+
+
+.at{
+    color: whitesmoke;
+}
+
+.at:hover{
+    color: whitesmoke;
 }
