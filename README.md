@@ -90,6 +90,15 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 5. Se l'installazione è completata, puoi chiudere il terminale o il prompt dei comandi.
 
 ## 📦 Gestione dei modelli con Git LFS
+>**Nota:** Nel progetto sono presenti più modelli, ogni modello rappresenta una fase di training diversa.
+> In ordine cronologico:
+> 1. New - Primo modello
+> 2. CosenoDistribuito - Modello addestrato con immagini selezionate tramite la distanza coseno 
+> 3. f2_0 - Modello addestrato come CosenoDistribuito ma con funzione di loss modificata, peso 2 per la classe AI (0)
+> 4. f1_5 - Modello addestrato come f2_0 ma con peso differente (1.5)
+> 5. Specificity - Modello finale
+> 
+> Si consiglia di pullare solo Specificity 
 1. File interessati: file con estensione `.h5`
 2. Se aprendo un file .h5 trovi il seguente contenuto:
 ```
