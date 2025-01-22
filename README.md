@@ -110,6 +110,7 @@ Significa che il file è un segnaposto e il contenuto reale non è ancora stato 
 3. Per scaricare i file completi, utilizza il seguente comando:
 
  ```bash
+  git lfs install
   git lfs pull
  ```
 
