@@ -82,6 +82,7 @@ dependencies:
   - xorg-libxdmcp=1.1.5
   - zstd=1.5.6
   - pip:
+      - kagglehub==0.3.6
       - absl-py==1.4.0
       - array-record==0.6.0
       - astunparse==1.6.3
