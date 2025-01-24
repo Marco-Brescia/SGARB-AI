@@ -126,9 +126,10 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 
 ## 🗂️ Reperire il dataset
 
-1. Scaricare il dataset dal seguente link:
-    - [Dataset](https://www.kaggle.com/datasets/ravidussilva/real-ai-art)
-    - Scaricato il dataset estraetelo in una cartella
+1. Esegui lo script per scaricare il dataset 
+     ```
+      python download_dataset.py
+     ```
 
 ## 🗑️ Eliminazione cartelle non utilizzate
 1. Aprendo la cartella del dataset, la struttura sara' la seguente:
