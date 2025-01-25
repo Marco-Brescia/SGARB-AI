@@ -1,0 +1,217 @@
+body{
+    overflow: hidden;
+}
+/* Centrare il contenitore principale nella pagina */
+.cover-container {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Imposta altezza della pagina a 100% della viewport */
+}
+/* Layout a griglia per i blocchi */
+.row.g-5 {
+    display: inline-grid;
+    grid-template-columns: 2fr 1fr 2fr; /* Layout iniziale con tre colonne */
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    height: 80vh;
+}
+/* Stile per i blocchi */
+.block {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Organizza il contenuto verticalmente */
+    justify-content: center; /* Centra verticalmente il contenuto */
+    align-items: center; /* Centra orizzontalmente il contenuto */
+}
+/* Blocchi specifici */
+#left-block {
+    grid-column: 1; /* Posiziona a sinistra */
+    width: 100%;
+    position: relative;
+    left: -100px;
+}
+#right-block {
+    grid-column: 3; /* Posiziona a destra */
+    width: 100%;
+    position: relative;
+    left: 100px;
+}
+.col-12.col-md-6 {
+    grid-column: 2; /* Posiziona al centro */
+    width: 100%;
+}
+.image-placeholder {
+    border: 1px solid #ccc;
+    padding: 20px;
+    min-height: 200px; /* Altezza minima */
+}
+/* Form centrato */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.logo {
+    width: 250px !important;
+}
+
+.image {
+    width: 1000px; /* Larghezza desiderata del contenitore */
+}
+/* Stile generale per il form */
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Spazio tra gli elementi del form */
+}
+/* Stile per il campo di input */
+#upload-form input[type="file"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    color: #333;
+}
+/* Stile per il pulsante */
+#upload-form button {
+    margin-top: 10px;
+    width: 100px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Effetto hover sul pulsante */
+#upload-form button:hover {
+    background-color: #2c2c2c;
+    color: white;
+}
+/* Placeholder immagine */
+#image-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+/* Stile per la navigazione */
+.nav {
+    display: flex;
+    flex-direction: row; /* Organizza le scelte una dietro l'altra */
+    align-items: center; /* Centra orizzontalmente le scelte */
+    gap: 20px; /* Aumenta lo spazio tra le scelte */
+    justify-content: center;
+    font-size: 1.2em; /* Aumenta la dimensione del testo */
+    font-weight: bold; /* Rende il testo in grassetto */
+}
+.nav-link {
+    color: silver; /* Colore del testo */
+    text-decoration: none; /* Rimuove il sottolineato */
+    transition: color 0.3s ease; /* Aggiunge una transizione graduale */
+    border-bottom: .20rem solid transparent; /* Aggiunge una linea sotto il testo */
+}
+
+.nav-link:hover, .nav-link:active:hover {
+    color: white !important; /* Cambia il colore al passaggio del mouse */
+    border-bottom: .20rem solid gray;
+}
+
+.nav-link:active {
+    color: white !important; /* Cambia il colore al click */
+}
+
+.founder_name {
+    font-weight: bold; /* Grassetto */
+    color: whitesmoke; /* Colore del testo */
+    margin-top: 20px; /* Spazio sopra il testo */
+}
+
+.founder_name:hover {
+    color: mediumpurple; /* Cambia colore al passaggio del mouse */
+    text-decoration: none;
+}
+
+.percentage-block {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 3rem); /* Dimensione del font tra 1rem e 3rem, ma proporzionale alla larghezza della viewport */    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccc; /* Bordo opzionale */
+    border-radius: 5px;
+    background-color: #2c2c2c; /* Sfondo simile agli altri elementi */
+    color: white;
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+}
+
+.left{
+    top: 75vh;
+    left: 100%;
+}
+
+.right{
+    top: 80vh;
+    right: 100%;
+}
+
+/* Blocco attivo */
+.block .active {
+    transform: scale(1.2); /* Ingrandisci */
+    background-color: mediumpurple !important; /* Verde Bootstrap */
+    color: white;
+    box-shadow: 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Blocco inattivo */
+.block .inactive {
+    transform: scale(0.9); /* Rimpicciolisci */
+    background-color: #6c757d !important; /* Grigio Bootstrap */
+    color: #fff;
+    box-shadow: none;
+}
+
+.block .active_result {
+    filter: invert(1); /* Inverte i colori, rendendo l'immagine bianca */
+    transition: filter 0.5s ease-in-out; /* Aggiunge una transizione graduale */
+}
+
+.founder-image-container {
+    width: 150px; /* Imposta larghezza del cerchio */
+    height: 150px; /* Imposta altezza del cerchio */
+    border: 5px solid whitesmoke; /* Colore e spessore del bordo */
+    border-radius: 50%; /* Rende il contenitore circolare */
+    overflow: hidden; /* Nasconde il contenuto in eccesso */
+    margin: 0 auto; /* Centra l'immagine all'interno del contenitore genitore */
+}
+
+.founder-image-container img {
+    width: 100%; /* Fa sì che l'immagine si adatti al contenitore */
+    height: 100%; /* Assicura che l'immagine riempia il contenitore */
+    object-fit: cover; /* Mantiene il rapporto dell'immagine centrando e ritagliando se necessario */
+}
+
+
+.at{
+    color: whitesmoke;
+}
+
+.at:hover{
+    color: whitesmoke;
+}

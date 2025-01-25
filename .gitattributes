@@ -1,0 +1,5 @@
+modello/new/model.h5 filter=lfs diff=lfs merge=lfs -text
+modello/CosenoDistribuito/model.h5 filter=lfs diff=lfs merge=lfs -text
+modello/f2_0/model.h5 filter=lfs diff=lfs merge=lfs -text
+modello/f1_5/model.h5 filter=lfs diff=lfs merge=lfs -text
+modello/specificity/model.h5 filter=lfs diff=lfs merge=lfs -text

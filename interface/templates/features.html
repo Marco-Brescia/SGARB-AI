@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SGARB-AI: Features</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="../static/build.css">
+
+  <!-- Custom JavaScript -->
+  <script src="../static/script.js" defer></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+<!--  <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">-->
+
+  <style>
+    html, body {
+      height: auto !important;
+      overflow: visible !important;
+    }
+    .cover-container {
+      height: auto !important;
+      min-height: 100vh; /* Assicura che riempia almeno la viewport */
+    }
+    .quote {
+      font-size: 1.8rem;
+      font-style: italic;
+      margin: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .quote::before {
+      content: '\201C';
+      font-size: 3rem;
+      color: #999;
+      margin-right: 5px;
+    }
+
+    .quote::after {
+      content: '\201D';
+      font-size: 3rem;
+      color: #999;
+      margin-left: 5px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .info-section {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .section:nth-child(odd) {
+      animation-name: slideInLeft;
+    }
+
+    .section:nth-child(even) {
+      animation-name: slideInRight;
+    }
+
+    .section .text {
+      flex: 1 1 50%;
+      padding: 20px;
+    }
+
+    .section .image {
+      flex: 1 1 50%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .text {
+      flex: 1 1 50% !important;
+      padding: 25px !important;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .text:hover {
+      transform: translateY(-10px);
+    }
+
+
+  </style>
+</head>
+
+<body class="text-center">
+<div class="d-flex flex-column">
+  <header class="masthead mb-auto position-relative">
+    <div class="inner">
+      <!-- Logo positioned in the top-left corner -->
+      <!-- By Marco: I really want Martina back. She was the best. I miss her so much. -->
+      <img src="../static/images/name_w.png" alt="SGARB-AI" class="logo">
+
+      <!-- Navigation centered -->
+      <nav class="nav">
+        <a class="nav-link active" href="/features">About Us</a>
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/contact">Contacts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="text">
+        <div class="quote">
+          Una macchina può essere definita intelligente se riesce a ingannare un essere umano facendogli credere che sia umana.
+        </div>
+        <p class="text-muted text-end">-<a href="https://www.instagram.com/noyz79/" class="at" style="text-decoration-line: none"> Alan Turing</a></p>
+      </div>
+      <div class="image">
+        <img src="../static/images/human.png" alt="Human Image">
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="image">
+        <img src="../static/images/goat.png" alt="Goat Image">
+      </div>
+      <div class="text">
+        <div class="title">Cos'è SGARB-AI?</div>
+        <div class="info-section">
+          SGARB-AI è un sistema avanzato di intelligenza artificiale progettato per analizzare e comprendere la creatività digitale.
+          Con strumenti sofisticati e algoritmi all'avanguardia, SGARB-AI rappresenta l'ultima frontiera nella valutazione di immagini
+          generate dall'uomo e dall'IA.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>&copy; 2025 SGARB-AI.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
