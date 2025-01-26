@@ -4,9 +4,6 @@
 
 ## Gruppo
 
-Il progetto è stato realizzato dal gruppo **Symposium**.
-
-### Componenti del gruppo:
 - 🧑‍💻 [**Giuseppe Gambardella**](https://github.com/giuseppegambardella)
 - 🧑‍💻 [**Marco Brescia**](https://github.com/Marco-Brescia)
 - 🧑‍💻 [**Francesco Faiella**](https://github.com/FaiellaFrancesco)
@@ -81,7 +78,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 
 ## Installazione esclusiva dell'ambiente virtuale senza Anaconda
 
-1. Installa Anaconda dal link fornito sopra in modo che il percorso sia aggiunto alle variabili di ambiente.
+1. Installa Anaconda dal link fornito sopra, assicurandoti di selezionare l'opzione per aggiungere il percorso di Anaconda alle variabili di ambiente durante l'installazione.
 2. Avvia lo script fornito sopra per importare l'ambiente virtuale:
     - MacOS: `MacOSenv.sh`
     - Windows: `WindowsEnv.bat`
@@ -98,7 +95,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 > 4. f1_5 - Modello addestrato come f2_0 ma con peso differente (1.5)
 > 5. Specificity - Modello finale
 > 
-> Si consiglia di pullare solo Specificity 
+> Si consiglia di pullare solo **Specificity**
 1. File interessati: file con estensione `.h5`
 2. Se aprendo un file .h5 trovi il seguente contenuto:
 ```
@@ -123,6 +120,7 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 
 # 🚀 Come replicare il progetto
 > **Note:** Per chi preferisse non replicare interamente il progetto e desiderasse saltare la fase di preprocessing dei dati, il dataset è già disponibile su GitHub nella cartella `DatasetTrainingDistanzaCoseno_Distribuito(Processed)`.
+- [Training](#-training-del-modello)
 
 ## 🗂️ Reperire il dataset
 
@@ -271,8 +269,7 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
 ## 🖼️ Preprocessing delle immagini
 1. File interessati: `data_preprocess.py`
 2. Variabili interessate: `processed_path` ,`input_real_path`,`input_ai_path`
-3. Aggiungere path alle variabile
-4. i`processed_path`,`input_real_path`,`input_ai_path`
+3. Aggiungere path alle variabili: `processed_path`,`input_real_path`,`input_ai_path`
       ```python
     def create_output_folders(base_path):
     processed_path = os.path.join(base_path, "cartella_di_destinazione(Processed)") #cartella di output dove ci saranno le immagini processate
@@ -337,7 +334,12 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
     ```
 
 ## ️🏋️‍♂️ Training del modello
-
+> **Nota:** Quando si avvia l'addestramento per la prima volta, 
+> il sistema eseguirà una ricerca dei migliori iperparametri per gli strati aggiunti successivamente a ResNet. Questo processo potrebbe richiedere tempi variabili a 
+> seconda delle risorse disponibili. Con le risorse a nostra disposizione (32 GB di RAM e una GPU Nvidia 3080 Ti), 
+> sono state necessarie circa 5 ore per completare questa fase. 
+> I risultati della ricerca degli iperparametri verranno salvati in una cartella interna al progetto, consentendo di recuperare questi valori ottimizzati per i successivi training, riducendo così i tempi di esecuzione. 
+> Tuttavia, a causa delle dimensioni significative di questi file, non è stato possibile includere questa parte nel repository.
 1. Modificare i valori delle variabili `dataset_dir`, `test_dir` e `output_dir` nel file `main.py` per specificare i percorsi delle cartelle di input e di output.
     ```python
    def main():
