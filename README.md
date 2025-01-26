@@ -104,6 +104,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
   size 10485760
 ```
 Significa che il file è un segnaposto e il contenuto reale non è ancora stato scaricato.
+
 3. Per scaricare i file completi, utilizza il seguente comando:
 
  ```bash
