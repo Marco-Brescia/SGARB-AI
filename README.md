@@ -24,7 +24,7 @@
     - 🔄 [Ordine di esecuzione degli script](#-ordine-di-esecuzione-degli-script)
     - 🌐 [Esecuzione dell'interfaccia](#-esecuzione-dellinterfaccia)
 
-## 📝 Introduzione
+# 📝 Introduzione
 
 Il progetto **SGARB-AI** è stato sviluppato come parte del corso di **Intelligenza Artificiale** presso l'**Università degli Studi di Salerno**, nell'anno accademico **2024-2025**. L'obiettivo principale di questo progetto è l'implementazione di un sistema di riconoscimento delle immagini, utilizzando tecniche di deep learning, per distinguere tra opere d'arte reali e arte generata tramite algoritmi di intelligenza artificiale.
 
@@ -86,7 +86,7 @@ In particolare, il progetto si è focalizzato maggiormente sul riconoscimento e 
 4. Non chiudere il terminale o il prompt dei comandi finché l'installazione non è completata.
 5. Se l'installazione è completata, puoi chiudere il terminale o il prompt dei comandi.
 
-## 📦 Gestione dei modelli con Git LFS
+# 📦 Gestione dei modelli con Git LFS
 >**Nota:** Nel progetto sono presenti più modelli, ogni modello rappresenta una fase di training diversa.
 > In ordine cronologico:
 > 1. New - Primo modello
@@ -359,7 +359,7 @@ In alcuni casi, i file vengono scaricati automaticamente durante il git clone o 
     - Grafico della curva ROC
     - Grafico precision, recall, accuracy, specificity
 
-# 🔄 Ordine di esecuzione degli script
+## 🔄 Ordine di esecuzione degli script
 1. `SelezioneImmaginiCosenoDistribuito.py`
 2. `build_dataset.py`
 3. `data_preprocess.py`
